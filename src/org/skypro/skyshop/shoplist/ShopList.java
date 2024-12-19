@@ -6,22 +6,22 @@ import org.skypro.skyshop.product.Product;
 
 public class ShopList {
     private final String[] NAME_PRODUCT = {"sofa","work table","chair","wardrobe","kitchen table","bed","magazine table"};
-    public Product[] productList = new Product[15];
-    public ShopList(){
-        //создание "рандомного" листа
-        Random rand = new Random();
-        for (int i = 0;i<productList.length;i++) {
-            String n = NAME_PRODUCT[rand.nextInt(NAME_PRODUCT.length)];
-            int price = rand.nextInt(15000);
-            if(price<5000){
-                price = 9999;
+    public static Product[] productList = new Product[15];
+        public ShopList(){
+            //создание "рандомного" листа
+            Random rand = new Random();
+            for (int i = 0;i<productList.length;i++) {
+                String n = NAME_PRODUCT[rand.nextInt(NAME_PRODUCT.length)];
+                int price = rand.nextInt(15000);
+                if(price<5000){
+                    price = 9999;
+                }
+                productList[i] = new Product(i+1, n, price);
             }
-            productList[i] = new Product(i+1, n, price);
         }
-    }
-    // получение продукта по id 
-    public Product getProductAtList(int n){
-        return productList[n];
+        // получение продукта по id 
+        public Product getProductAtList(int n){
+            return productList[--n];
     }
     //создание строки с каталогом
     public String toString(){

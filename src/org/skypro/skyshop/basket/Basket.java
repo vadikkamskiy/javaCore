@@ -1,45 +1,36 @@
 package org.skypro.skyshop.basket;
 
-import org.skypro.skyshop.product.*;
-public class Basket {
-    /*
-    *создание статичной корзины с продукцией
-    *в задании было написано "использовать static только в main-е"
-    *перепробовал многое, получилось только так...    
-    */
-    private static Product[] basket;
-    
-    //добавление продукта в корзину
-    public static void addProduct(Product p){
-        if(basket == null ){
-            basket = new Product[1];
-            basket[0] = p;
-        }else{
-            Product[] newBasket = new Product[basket.length+1];
-            for (int i = 0;i < basket.length;i++) {
-                newBasket[i] = basket[i];
-            }
-            newBasket[newBasket.length-1] = p;
-            basket = newBasket;
-        }
-    }
-    public String toString(){
+import org.skypro.skyshop.product.Product;
 
-        String output = "Basket \n";
-        if(basket==null){
-            output = "Basket is empty";
+public class Basket {
+    private static int id = 0;
+    private Product[] basket = new Product[5];
+    
+    public void addProduct(Product p){
+        if(id<5){
+            basket[id] = p;
+            id++;
         }else{
+            System.out.println("basket is full");
+        }
+        
+    }
+    @Override
+    public String toString(){
+        String output = "";
+        if(id != 0){
             for (Product product : basket) {
                 output += product;
             }
+        }else{
+            System.out.println("Basket is empty");
         }
-        return output;
+        return output + "\n";
     }
-    //сумма покупок
-    public int getSumOfBasket(){
+    public int getSum(){
         int sum = 0;
-        if(basket == null){
-            System.out.println("You haven't chosen anything");
+        if(id == 0){
+            System.out.println("Your basket is empty");
         }else{
             for (Product product : basket) {
                 sum += product.getPrice();
@@ -47,16 +38,23 @@ public class Basket {
         }
         return sum;
     }
-    //поиск товара в корзине
-    public void findProductInBasket(String nm){
-        if(basket != null){
+    public void basketListFind (String p){
+        int i = 0;
+        if(id != 0){
             for (Product product : basket) {
-                if(product.getName().equals(nm)){
-                    System.out.println(product + "in basket");
+                if(product.getName().equals(p)){
+                    System.out.println(product + "found in basket");
+                    i++;
                 }
             }
-        }else{
-            System.out.println("basket is empty");
         }
+        if(i == 0){
+            System.out.println("in basket not found " + p);
+        }
+    }
+    public void clear(){
+        this.basket = null;
+        this.basket = new Product[5];
+        this.id = 0;
     }
 }
