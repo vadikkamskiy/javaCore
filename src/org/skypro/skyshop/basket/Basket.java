@@ -2,9 +2,14 @@ package org.skypro.skyshop.basket;
 
 import org.skypro.skyshop.product.*;
 public class Basket {
+    /*
+    *создание статичной корзины с продукцией
+    *в задании было написано "использовать static только в main-е"
+    *перепробовал многое, получилось только так...    
+    */
     private static Product[] basket;
     
-    
+    //добавление продукта в корзину
     public static void addProduct(Product p){
         if(basket == null ){
             basket = new Product[1];
@@ -30,7 +35,8 @@ public class Basket {
         }
         return output;
     }
-    public void getSum(){
+    //сумма покупок
+    public int getSumOfBasket(){
         int sum = 0;
         if(basket == null){
             System.out.println("You haven't chosen anything");
@@ -38,7 +44,19 @@ public class Basket {
             for (Product product : basket) {
                 sum += product.getPrice();
             }
-            System.out.println(sum);
+        }
+        return sum;
+    }
+    //поиск товара в корзине
+    public void findProductInBasket(String nm){
+        if(basket != null){
+            for (Product product : basket) {
+                if(product.getName().equals(nm)){
+                    System.out.println(product + "in basket");
+                }
+            }
+        }else{
+            System.out.println("basket is empty");
         }
     }
 }

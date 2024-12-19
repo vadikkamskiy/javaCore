@@ -24,9 +24,11 @@ public class App {
         
         if(h==0){
             watchBasket();
-        }else if(h>0 || h<=15){
+        }else if(h>0 && h<=15){
             Basket.addProduct(sl.getProductAtList(--h));
             watchShop();
+        }else if(h==777){
+            searchProduct();
         }
         scan.close();
         
@@ -36,14 +38,24 @@ public class App {
     static void watchBasket(){
         Basket bl = new Basket();
         System.out.println(bl);
-        bl.getSum();
+        System.out.println("Итого : " + bl.getSumOfBasket());
     }
 
     //отображение листа с продукцией
     static void watchShop() {
         System.out.println(sl);
         System.out.println("0 - watch basket");
+        System.out.println("777 - search by name");
         choose();
-        
+    }
+
+    static void searchProduct(){
+        Scanner scan = new Scanner(System.in);
+        System.out.println("enter name of product");
+        String nm = scan.nextLine();
+        sl.findProduct(nm);
+        Basket bl = new Basket();
+        bl.findProductInBasket(nm);
+
     }
 }

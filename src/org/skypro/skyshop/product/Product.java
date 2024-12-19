@@ -17,4 +17,13 @@ public class Product {
     public int getPrice(){
         return priceOfProduct;
     }
+    public String getName(){
+        return nameOfProduct;
+    }
+    public void setName(String name){
+        nameOfProduct = name;
+    }
+    public void setPrice(int price){
+        priceOfProduct = price;
+    }
 }
