@@ -16,7 +16,7 @@ public class ShopList {
                 if(price<5000){
                     price = 9999;
                 }
-                productList[i] = new Product(i+1, n, price);
+                productList[i] = new Product(n, price);
             }
         }
         // получение продукта по id 

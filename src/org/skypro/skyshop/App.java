@@ -9,7 +9,7 @@ public class App {
         ShopList sl = new ShopList();
         //создание корзины
         Basket myBasket = new Basket();
-        System.out.println(myBasket.toString() + myBasket.getSum());
+        System.out.println(myBasket.getList() + myBasket.getSum());
         myBasket.addProduct(sl.getProductAtList(7));
         myBasket.addProduct(sl.getProductAtList(11));
         myBasket.addProduct(sl.getProductAtList(1));
@@ -17,13 +17,12 @@ public class App {
         myBasket.addProduct(sl.getProductAtList(3));
         myBasket.addProduct(sl.getProductAtList(4));
         myBasket.addProduct(sl.getProductAtList(8));
-        System.out.println(myBasket.toString() + "total : " + myBasket.getSum());
+        System.out.println(myBasket.getList());
         String p = "sofa";
         sl.findProduct(p);
-        myBasket.basketListFind(p);
+        System.out.println("available in basket :" + myBasket.basketListFind(p));
         myBasket.clear();
-        System.out.println(myBasket.toString());
-        System.out.println(myBasket.getSum());
+        System.out.println(myBasket.getList());
         myBasket.basketListFind(p);
     }
 

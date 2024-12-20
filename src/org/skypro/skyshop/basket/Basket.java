@@ -15,8 +15,9 @@ public class Basket {
         }
         
     }
-    @Override
-    public String toString(){
+    
+    public String getList(){
+        System.out.println("Basket.getList()");
         String output = "";
         if(id != 0){
             for (Product product : basket) {
@@ -25,9 +26,9 @@ public class Basket {
         }else{
             System.out.println("Basket is empty");
         }
-        return output + "\n";
+        return output + "\n" + getSum();
     }
-    public int getSum(){
+    public String getSum(){
         int sum = 0;
         if(id == 0){
             System.out.println("Your basket is empty");
@@ -36,23 +37,22 @@ public class Basket {
                 sum += product.getPrice();
             }
         }
-        return sum;
+        return "Total : " + sum;
     }
-    public void basketListFind (String p){
-        int i = 0;
+    public boolean basketListFind (String p){
+        System.out.println("Basket.basketListFind()");
+        boolean i = false;
         if(id != 0){
             for (Product product : basket) {
                 if(product.getName().equals(p)){
-                    System.out.println(product + "found in basket");
-                    i++;
+                    i = true;
                 }
             }
         }
-        if(i == 0){
-            System.out.println("in basket not found " + p);
-        }
+        return i;
     }
     public void clear(){
+        System.out.println("Basket.clear()");
         this.basket = null;
         this.basket = new Product[5];
         this.id = 0;
