@@ -9,7 +9,7 @@ public class App {
         ShopList sl = new ShopList();
         //создание корзины
         Basket myBasket = new Basket();
-        System.out.println(myBasket.getList() + myBasket.getSum());
+        System.out.println(myBasket.getList());
         myBasket.addProduct(sl.getProductAtList(7));
         myBasket.addProduct(sl.getProductAtList(11));
         myBasket.addProduct(sl.getProductAtList(1));

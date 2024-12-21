@@ -26,9 +26,9 @@ public class Basket {
         }else{
             System.out.println("Basket is empty");
         }
-        return output + "\n" + getSum();
+        return output + "\n Total : " + getSum();
     }
-    public String getSum(){
+    public int getSum(){
         int sum = 0;
         if(id == 0){
             System.out.println("Your basket is empty");
@@ -37,7 +37,7 @@ public class Basket {
                 sum += product.getPrice();
             }
         }
-        return "Total : " + sum;
+        return sum;
     }
     public boolean basketListFind (String p){
         System.out.println("Basket.basketListFind()");
