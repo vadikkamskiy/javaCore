@@ -16,4 +16,8 @@ public class FixPriceProduct extends Product {
     public String getInfo(){
         return this.getName() + " : Фиксированная цена " + PRICE_FIXED + "\n";
     }
+    @Override
+        public boolean isSpecial(){
+            return true;
+        }
 }

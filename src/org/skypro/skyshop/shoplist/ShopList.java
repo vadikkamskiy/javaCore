@@ -40,9 +40,10 @@ public class ShopList {
     }
     //поиск товара в магазине
     public void findProduct(String name){
+        System.out.println("ShopList.findProduct()");
         for (Product pro : productList) {
             if(pro.getName().equals(name)){
-                System.out.println(pro + " in shop");
+                System.out.println(pro.getInfo() + " in shop");
             }
         }
     }

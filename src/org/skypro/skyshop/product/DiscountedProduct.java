@@ -15,5 +15,9 @@ public class DiscountedProduct extends Product {
     @Override
     public String getInfo(){
         return getName() +" : "+ this.price + " (скидка - " + this.discount + "%)\n";
-    } 
+    }
+    @Override
+        public boolean isSpecial(){
+            return true;
+        } 
 }
