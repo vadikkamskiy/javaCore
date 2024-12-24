@@ -21,7 +21,7 @@ public class Basket {
         String output = "";
         if(id != 0){
             for (Product product : basket) {
-                output += product;
+                output += product.getInfo();
             }
         }else{
             System.out.println("Basket is empty");

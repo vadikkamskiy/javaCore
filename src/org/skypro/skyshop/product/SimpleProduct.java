@@ -12,4 +12,8 @@ public class SimpleProduct extends Product {
         return this.price;
     }
 
+    @Override
+    public String getInfo(){
+        return this.getName() + " : " + this.price + "\n";
+    }
 }

@@ -1,22 +1,23 @@
 package org.skypro.skyshop;
 
+import java.util.Random;
+
 import org.skypro.skyshop.basket.Basket;
 import org.skypro.skyshop.shoplist.ShopList;
 
 public class App {
+    static Random rand = new Random();
     public static void main(String[] args) throws Exception {
         //создание листа с продукцией
         ShopList sl = new ShopList();
+        System.out.println(sl);
         //создание корзины
         Basket myBasket = new Basket();
         System.out.println(myBasket.getList());
-        myBasket.addProduct(sl.getProductAtList(7));
-        myBasket.addProduct(sl.getProductAtList(11));
-        myBasket.addProduct(sl.getProductAtList(1));
-        myBasket.addProduct(sl.getProductAtList(2));
-        myBasket.addProduct(sl.getProductAtList(3));
-        myBasket.addProduct(sl.getProductAtList(4));
-        myBasket.addProduct(sl.getProductAtList(8));
+        for(int i = 0; i< 7;i++){
+            myBasket.addProduct(sl.getProductAtList(rand.nextInt(14)));
+
+        }
         System.out.println(myBasket.getList());
         String p = "sofa";
         sl.findProduct(p);
@@ -25,6 +26,4 @@ public class App {
         System.out.println(myBasket.getList());
         myBasket.basketListFind(p);
     }
-
-        
 }

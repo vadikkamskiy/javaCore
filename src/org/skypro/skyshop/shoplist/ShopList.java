@@ -2,6 +2,8 @@ package org.skypro.skyshop.shoplist;
 
 import java.util.Random;
 
+import org.skypro.skyshop.product.DiscountedProduct;
+import org.skypro.skyshop.product.FixPriceProduct;
 import org.skypro.skyshop.product.Product;
 import org.skypro.skyshop.product.SimpleProduct;
 
@@ -13,22 +15,26 @@ public class ShopList {
             Random rand = new Random();
             for (int i = 0;i<productList.length;i++) {
                 String n = NAME_PRODUCT[rand.nextInt(NAME_PRODUCT.length)];
-                int price = rand.nextInt(15000);
+                int price = rand.nextInt(20000);
                 if(price<5000){
-                    price = 9999;
+                    productList[i] = new FixPriceProduct(n);
+                }else if(price >15000){
+                    productList[i] = new DiscountedProduct(n, price,(byte)12);
+                }else{
+                    productList[i] = new SimpleProduct(n, price);
                 }
-                productList[i] = new SimpleProduct(n, price);
+                
             }
         }
         // получение продукта по id 
         public Product getProductAtList(int n){
-            return productList[--n];
+            return productList[n];
     }
     //создание строки с каталогом
     public String toString(){
         String output = "Shop \n";
         for (Product p : productList) {
-            output += p;
+            output += p.getInfo();
         }
         return output;
     }

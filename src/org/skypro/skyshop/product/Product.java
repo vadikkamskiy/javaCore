@@ -8,7 +8,7 @@ public abstract class Product {
         nameOfProduct = name;
         
     }
-
+    @Override
     public String toString(){
         return nameOfProduct; 
     }
@@ -17,4 +17,5 @@ public abstract class Product {
     public String getName(){
         return nameOfProduct;
     }
+    public abstract String getInfo();
 }

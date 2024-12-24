@@ -10,4 +10,10 @@ public class FixPriceProduct extends Product {
     @Override
     public int getPrice() {
         return PRICE_FIXED;
-    }}
+    }
+
+    @Override
+    public String getInfo(){
+        return this.getName() + " : Фиксированная цена " + PRICE_FIXED + "\n";
+    }
+}
