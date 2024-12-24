@@ -8,12 +8,15 @@ import org.skypro.skyshop.shoplist.ShopList;
 public class App {
     static Random rand = new Random();
     public static void main(String[] args) throws Exception {
-        //создание листа с продукцией
+        //создание "рандомного" листа с продукцией
         ShopList sl = new ShopList();
         System.out.println(sl);
         //создание корзины
         Basket myBasket = new Basket();
         System.out.println(myBasket.getList());
+        /*добовление "рандомных" продуктов в корзину
+        *не всегда добавляются все три разных класса
+        */ 
         for(int i = 0; i< 7;i++){
             myBasket.addProduct(sl.getProductAtList(rand.nextInt(14)));
 

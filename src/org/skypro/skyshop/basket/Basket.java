@@ -4,9 +4,10 @@ import org.skypro.skyshop.product.Product;
 
 public class Basket {
     private static int id = 0;
+    //счётчик специальных продуктов
     private static int specialCount = 0;
     private Product[] basket = new Product[5];
-    
+    // добавление продукта в корзину, 5 - максимум
     public void addProduct(Product p){
         if(id<5){
             basket[id] = p;
@@ -16,7 +17,7 @@ public class Basket {
         }
         
     }
-    
+    // вывод листа продуктов корзины в консоль
     public String getList(){
         System.out.println("Basket.getList()");
         String output = "";
@@ -55,6 +56,7 @@ public class Basket {
         }
         return i;
     }
+    // очистка корзины
     public void clear(){
         System.out.println("Basket.clear()");
         this.basket = null;
