@@ -3,6 +3,7 @@ package org.skypro.skyshop.shoplist;
 import java.util.Random;
 
 import org.skypro.skyshop.product.Product;
+import org.skypro.skyshop.product.SimpleProduct;
 
 public class ShopList {
     private final String[] NAME_PRODUCT = {"sofa","work table","chair","wardrobe","kitchen table","bed","magazine table"};
@@ -16,7 +17,7 @@ public class ShopList {
                 if(price<5000){
                     price = 9999;
                 }
-                productList[i] = new Product(n, price);
+                productList[i] = new SimpleProduct(n, price);
             }
         }
         // получение продукта по id 
